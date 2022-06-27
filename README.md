@@ -2,8 +2,7 @@
 # OWASP Security Shepherd [![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-48A646.svg)](https://www.owasp.org/index.php/OWASP_Project_Inventory#tab=Flagship_Projects) 
 The [OWASP Security Shepherd Project](http://bit.ly/owaspSecurityShepherd) is a web and mobile application security training platform. Security Shepherd has been designed to foster and improve security awareness among a varied skill-set demographic. The aim of this project is to take AppSec novices or experienced engineers and sharpen their penetration testing skill set to security expert status.
 
-[![Build Status](https://travis-ci.com/OWASP/SecurityShepherd.svg?branch=dev)](https://travis-ci.com/OWASP/SecurityShepherd)
-  
+[![Build and Test](https://github.com/OWASP/SecurityShepherd/actions/workflows/test.yml/badge.svg)](https://github.com/OWASP/SecurityShepherd/actions/workflows/test.yml)  
 # Where can I download Security Shepherd?
 
 ### Virtual Machine or Manual Setup
@@ -14,7 +13,7 @@ You can download Security Shepherd VM's or Manual Installation Packs from [GitHu
 #### Initial Setup
 ```console
 # Install pre-reqs
-sudo apt install git maven docker docker-compose default-jdk
+sudo apt install git maven docker docker-compose openjdk-8-jdk
 
 # Clone the github repository
 git clone https://github.com/OWASP/SecurityShepherd.git
