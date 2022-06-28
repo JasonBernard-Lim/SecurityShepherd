@@ -1,19 +1,20 @@
+name: Semgrep
 on:
   pull_request_target: {}
   push:
     branches:
-    - dev
+      - dev
     paths:
-    - .github/workflows/semgrep.yml
-  schedule:
-  - cron: '0 0 * * 0'
-name: Semgrep
+      - .github/workflows/semgrep.yml
 jobs:
   semgrep:
     name: Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    container:
+      image: returntocorp/semgrep
+    if: (github.actor != 'dependabot[bot]')
     steps:
-    - uses: actions/checkout@v2
-    - uses: returntocorp/semgrep-action@v1
-      with:
-        publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
+      - uses: actions/checkout@v3
+      - run: semgrep ci
